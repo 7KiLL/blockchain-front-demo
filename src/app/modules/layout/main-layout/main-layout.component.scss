@@ -1,0 +1,17 @@
+nz-layout {
+  background: url("../../../../assets/img/head-blue-bg.png"), url("../../../../assets/img/footer-blue-bg.png");
+  background-position: top, bottom;
+  background-repeat: no-repeat;
+  nz-header {
+    background-color: transparent;
+    color: #fff;
+  }
+  nz-content {
+    min-height: 200vh;
+  }
+
+  nz-footer {
+    background-color: transparent;
+  }
+
+}
