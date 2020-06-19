@@ -6,7 +6,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { PaymentContainerComponent } from './containers/payment-container/payment-container.component';
 
 
-
 @NgModule({
   declarations: [PaymentFormComponent, PaymentContainerComponent],
   imports: [
@@ -16,7 +15,7 @@ import { PaymentContainerComponent } from './containers/payment-container/paymen
     ReactiveFormsModule,
     NzCheckboxModule,
     NzButtonModule,
-    NzCardModule
+    NzCardModule,
   ],
   exports: [
     PaymentFormComponent

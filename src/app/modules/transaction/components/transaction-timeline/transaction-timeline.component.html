@@ -1,0 +1,8 @@
+<nz-timeline [nzPending]="pendingStatus"
+             [@fade]="transactions.length"
+
+>
+  <nz-timeline-item
+    *ngFor="let item of transactions"
+  >{{item}}</nz-timeline-item>
+</nz-timeline>

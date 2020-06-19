@@ -14,7 +14,7 @@ export class PaymentFormComponent implements OnInit {
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      creditCard: [null, [Validators.required]],
       remember: [true]
     });
   }

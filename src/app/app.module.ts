@@ -1,10 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LayoutModule} from './modules/layout/layout.module';
-import {TestComponent} from './test/test.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -13,13 +11,20 @@ import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {NzFormModule} from 'ng-zorro-antd';
 import {PaymentModule} from './modules/payment/payment.module';
+import {TransactionModule} from './modules/transaction/transaction.module';
+import {StoreModule} from '@ngrx/store';
+import {appReducers} from './core/store/app.reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {TransactionEffects} from './modules/transaction/store/transaction.effects';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {environment} from '../environments/environment';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,12 @@ registerLocaleData(en);
     ReactiveFormsModule,
     HttpClientModule,
     NzFormModule,
-    PaymentModule
+    PaymentModule,
+    TransactionModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([TransactionEffects]),
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [{provide: NZ_I18N, useValue: en_US}],
   bootstrap: [AppComponent]

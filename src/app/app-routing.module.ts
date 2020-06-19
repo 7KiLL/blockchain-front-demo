@@ -1,18 +1,17 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {TestComponent} from './test/test.component';
 import {Layout} from './modules/layout/layout.enum';
-import {PaymentFormComponent} from './modules/payment/payment-form/payment-form.component';
 import {PaymentContainerComponent} from './modules/payment/containers/payment-container/payment-container.component';
+import {TransactionListComponent} from './modules/transaction/containers/transaction-list/transaction-list.component';
 
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     data: {
       layout: Layout.Main
     },
-    component: TestComponent
+    component: TransactionListComponent
   },
   {
     path: 'payment',

@@ -1,0 +1,11 @@
+[nz-menu] {
+  background-color: transparent;
+  border-bottom: transparent;
+  li {
+    color: white;
+    &:hover {
+      color: darken(white, 10);
+      border-bottom: 1px white solid;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="layout">
+<ng-container [ngSwitch]="layout || Layout.Main">
   <app-main-layout *ngSwitchCase="Layout.Main"></app-main-layout>
   <app-some-layout *ngSwitchCase="Layout.Some"></app-some-layout>
   <app-main-layout *ngSwitchDefault></app-main-layout>
