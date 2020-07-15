@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      layout: Layout.Main
+      layout: Layout.Main,
+      title: 'Main'
     },
     component: TransactionListComponent
   },
@@ -19,6 +20,10 @@ const routes: Routes = [
     data: {
       layout: Layout.Main
     }
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   }
 ];
 

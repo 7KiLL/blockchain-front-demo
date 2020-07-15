@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {LayoutModule} from './modules/layout/layout.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -19,6 +19,9 @@ import {TransactionEffects} from './modules/transaction/store/transaction.effect
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {ApiTokenInterceptor} from './core/auth/interceptors/api-token.interceptor';
+import { PurchaseModalComponent } from './core/modals/purchase-modal/purchase-modal.component';
+import {PurchaseModalModule} from './core/modals/purchase-modal/purchase-modal.module';
 
 registerLocaleData(en);
 
@@ -40,9 +43,13 @@ registerLocaleData(en);
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([TransactionEffects]),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    PurchaseModalModule
   ],
-  providers: [{provide: NZ_I18N, useValue: en_US}],
+  providers: [
+    {provide: NZ_I18N, useValue: en_US},
+    {provide: HTTP_INTERCEPTORS, useClass: ApiTokenInterceptor, multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

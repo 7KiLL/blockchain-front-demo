@@ -1,5 +1,13 @@
-<ul nz-menu nzMode="horizontal">
-  <li nz-menu-item routerLink="/">Home</li>
-  <li nz-menu-item routerLink="/payment">Payment</li>
-  <li nz-menu-item>Dashboard</li>
-</ul>
+<!--<ul nz-menu nzMode="horizontal">-->
+<!--  <li nz-menu-item routerLink="/">Home</li>-->
+<!--  <li nz-menu-item routerLink="/payment">Payment</li>-->
+<!--  <li nz-menu-item>Dashboard</li>-->
+
+<!--  <li nz-menu-item> Test</li>-->
+<!--</ul>-->
+<nz-page-header class="site-page-header"
+                (nzBack)="onBack()"
+                [nzBackIcon]="hasParent | async"
+                [nzTitle]="headerTitle | async"
+                nzSubtitle="This is a subtitle">
+</nz-page-header>
