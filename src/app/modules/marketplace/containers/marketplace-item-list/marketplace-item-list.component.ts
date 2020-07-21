@@ -34,7 +34,7 @@ export class MarketplaceItemListComponent implements OnInit {
     });
     modalRef.componentInstance.fillModal($event);
 
-    this.marketplaceEffects.checkoutSuccess$
+    this.marketplaceEffects.checkoutWaitingForPending$
       /**
        * We will take in only once since subscription will create every time onClick
        */
