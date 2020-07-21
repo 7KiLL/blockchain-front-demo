@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, RoutesRecognized} from '@angular/router';
+import {ActivationStart, Router, RoutesRecognized} from '@angular/router';
 import {Layout} from './modules/layout/layout.enum';
 import {HttpClient} from '@angular/common/http';
-import {ITransaction} from './modules/transaction/models/transaction';
+import {distinctUntilChanged, filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -23,17 +23,34 @@ export class AppComponent implements OnInit {
   }
 
   private layoutSetup() {
+    // this.router.events
+    //   .pipe(
+    //     filter(event => event instanceof RoutesRecognized)
+    //   )
+    //   .subscribe((data: RoutesRecognized) => {
+    //
+    //     this.layout = data.state.root.firstChild?.data.layout;
+    //     console.log(this.layout);
+    //
+    //   });
+
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
-        this.layout = data.state.root.firstChild?.data.layout;
+        console.log(data.state.root.firstChild);
+        this.layout = data.state.root.firstChild.data.layout;
       }
     });
+
+  //   this.router.events
+  //     .pipe(
+  //       filter(event => event instanceof ActivationStart),
+  //     )
+  //     .subscribe((route: ActivationStart) => {
+  //       this.layout = route.snapshot.data.layout;
+  //     });
   }
 
   private httpTest() {
-    this.http.get<ITransaction>(`https://jsonplaceholder.typicode.com/todos/1`)
-      .subscribe(res => {
-        console.log(res);
-      });
+
   }
 }

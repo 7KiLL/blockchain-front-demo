@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {Layout} from './modules/layout/layout.enum';
-import {PaymentContainerComponent} from './modules/payment/containers/payment-container/payment-container.component';
-import {TransactionListComponent} from './modules/transaction/containers/transaction-list/transaction-list.component';
 
 
 const routes: Routes = [
@@ -12,18 +10,15 @@ const routes: Routes = [
       layout: Layout.Main,
       title: 'Main'
     },
-    component: TransactionListComponent
+    loadChildren: () => import('./modules/marketplace/marketplace.module').then(m => m.MarketplaceModule)
   },
   {
-    path: 'payment',
-    component: PaymentContainerComponent,
+    path: 'dashboard',
     data: {
-      layout: Layout.Main
-    }
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+      layout: Layout.Dashboard,
+      title: 'Dashboard',
+    },
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   }
 ];
 
