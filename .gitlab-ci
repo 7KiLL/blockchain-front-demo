@@ -1,0 +1,18 @@
+image: node:12.18.2
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  stage: deploy
+  script:
+  - npm install -g @angular/cli@9.0.3
+  - npm install
+  - ng build
+  - mv dist/blockchain-front/* public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - pages
