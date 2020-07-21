@@ -1,7 +1,7 @@
 import {ActionReducerMap} from '@ngrx/store';
 import {IAppState} from './app.state';
-import {transactionReducers} from '../../modules/transaction/store/transaction.reducers';
+import {marketplaceReducer} from '../../modules/marketplace/store/marketplace.reducer';
 
 export const appReducers: ActionReducerMap<IAppState, any> = {
-  transactions: transactionReducers
+  marketplace: marketplaceReducer
 };

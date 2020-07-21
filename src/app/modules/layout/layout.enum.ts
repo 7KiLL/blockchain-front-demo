@@ -1,4 +1,4 @@
 export enum Layout {
   Main,
-  Some
+  Dashboard
 }

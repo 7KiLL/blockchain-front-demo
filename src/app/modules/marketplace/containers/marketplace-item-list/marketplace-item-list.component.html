@@ -1,0 +1,14 @@
+<section class="marketplace">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 my-3">
+      <div class="col mb-4"
+           *ngFor="let item of items$ | async"
+      >
+        <app-marketplace-item
+          [item]="item"
+          (onPurchase)="handlePurchase($event)"
+        ></app-marketplace-item>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,12 +1,12 @@
-import {initialTransactionState, ITransactionState} from '../../modules/transaction/store/transaction.state';
+import {marketplaceInitialState, MarketplaceState} from '../../modules/marketplace/store/marketplace.reducer';
 
 export interface IAppState {
   // router?: RouterReducerState;
-  transactions: ITransactionState;
+  marketplace: MarketplaceState;
 }
 
 export const initialAppState: IAppState = {
-  transactions: initialTransactionState
+  marketplace: marketplaceInitialState
 };
 
 export function getInitialState(): IAppState {
