@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {SiteSettingsService} from '../../../../core/modules/site-settings/site-settings.service';
 
 @Component({
-  selector: 'app-main-layout-footer',
-  templateUrl: './main-layout-footer.component.html',
-  styleUrls: ['./main-layout-footer.component.scss']
+  selector: 'app-dashboard-layout-footer',
+  templateUrl: './dashboard-layout-footer.component.html',
+  styleUrls: ['./dashboard-layout-footer.component.scss']
 })
-export class MainLayoutFooterComponent implements OnInit {
+export class DashboardLayoutFooterComponent implements OnInit {
 
   public footerCopyright = this.siteSettingsService.getFooterCopyright();
 

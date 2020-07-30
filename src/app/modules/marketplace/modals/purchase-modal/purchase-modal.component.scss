@@ -1,0 +1,10 @@
+/* modal animation */
+:host {
+  animation-name: example;
+  animation-duration: 0.3s;
+}
+
+@keyframes example {
+  0%   {opacity: 0}
+  100% {opacity: 1}
+}
