@@ -1,7 +1,10 @@
-
-import { MarketplaceActions, MarketplaceActionTypes } from './marketplace.actions';
+import {MarketplaceActions, MarketplaceActionTypes} from './marketplace.actions';
 import {WalletModel} from '../models/wallet.model';
 import {TransactionModel} from '../models/transaction.model';
+
+const AD_FEE = 0.02;
+const SERVICE_FEE = 0.05;
+const SUPPORT_FEE = 0.01;
 
 export const marketplaceFeatureKey = 'marketplace';
 
@@ -71,7 +74,7 @@ export function marketplaceReducer(state = marketplaceInitialState, action: Mark
 
       return {
         ...state,
-        transactions: [...transactions, ]
+        transactions: [...transactions,]
       };
 
     case MarketplaceActionTypes.FillWallet:
@@ -80,27 +83,30 @@ export function marketplaceReducer(state = marketplaceInitialState, action: Mark
 
       state.transactions.forEach((item, i) => {
         switch (item.item.store) {
-          case 'Xiaomi': calculatedSubs = {
-            sub1: state.wallet.sub1 + pending * 0.4,
-            sub2: state.wallet.sub2 + pending * 0.25,
-            sub3: state.wallet.sub3 + pending * 0.15,
-            sub4: state.wallet.sub4 + pending * 0.15,
-          };
-                         break;
-          case 'Balmain': calculatedSubs = {
-            sub1: state.wallet.sub1 + pending * 0.4,
-            sub2: state.wallet.sub2 + pending * 0.25,
-            sub3: state.wallet.sub3 + pending * 0.15,
-            sub5: state.wallet.sub5 + pending * 0.15,
-          };
-                          break;
-          case 'Pierre Cardin': calculatedSubs = {
-            sub1: state.wallet.sub1 + pending * 0.4,
-            sub2: state.wallet.sub2 + pending * 0.25,
-            sub3: state.wallet.sub3 + pending * 0.15,
-            sub6: state.wallet.sub6 + pending * 0.15,
-          };
-                                break;
+          case 'Xiaomi':
+            calculatedSubs = {
+              sub1: state.wallet.sub1 + pending * SERVICE_FEE,
+              sub2: state.wallet.sub2 + pending * AD_FEE,
+              sub3: state.wallet.sub3 + pending * SUPPORT_FEE,
+              sub4: state.wallet.sub4 + pending * 0.92,
+            };
+            break;
+          case 'Balmain':
+            calculatedSubs = {
+              sub1: state.wallet.sub1 + pending * SERVICE_FEE,
+              sub2: state.wallet.sub2 + pending * AD_FEE,
+              sub3: state.wallet.sub3 + pending * SUPPORT_FEE,
+              sub5: state.wallet.sub5 + pending * 0.92,
+            };
+            break;
+          case 'Pierre Cardin':
+            calculatedSubs = {
+              sub1: state.wallet.sub1 + pending * SERVICE_FEE,
+              sub2: state.wallet.sub2 + pending * AD_FEE,
+              sub3: state.wallet.sub3 + pending * SUPPORT_FEE,
+              sub6: state.wallet.sub6 + pending * 0.92,
+            };
+            break;
         }
       });
 
