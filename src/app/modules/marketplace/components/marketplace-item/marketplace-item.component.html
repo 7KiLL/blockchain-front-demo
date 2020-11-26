@@ -4,10 +4,16 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
-        <p class="card-text">{{item.description}}</p>
-        <button type="button" class="btn btn-success btn-sm" (click)="handleItemClick()">Buy: {{item.price}}&euro;</button>
-<!--        <p class="card-text"><small class="text-muted">{{item.price}}</small></p>-->
+        <div class="info">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <button type="button" class="btn btn-success btn-sm" (click)="handleItemClick()">Buy: {{item.price}}&euro;</button>
+          <!--        <p class="card-text"><small class="text-muted">{{item.price}}</small></p>-->
+        </div>
+        <div class="store-block">
+          <span class="card-text">Store: </span>
+          <span class="store-name card-text">{{item.store}}</span>
+        </div>
       </div>
     </div>
   </div>

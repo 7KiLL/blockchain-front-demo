@@ -26,7 +26,6 @@ export class MarketplaceEffects {
       //   item: action.payload,
       //   status: 'pending'
       // };
-
       const t: TransactionModel = {
         item: action.payload,
         amount: action.payload.price,

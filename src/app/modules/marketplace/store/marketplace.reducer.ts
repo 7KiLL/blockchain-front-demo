@@ -76,14 +76,34 @@ export function marketplaceReducer(state = marketplaceInitialState, action: Mark
 
     case MarketplaceActionTypes.FillWallet:
       const pending = state.wallet.pendingForFill;
-      const calculatedSubs = {
-        sub1: state.wallet.sub1 + pending * 0.2,
-        sub2: state.wallet.sub2 + pending * 0.15,
-        sub3: state.wallet.sub3 + pending * 0.05,
-        sub4: state.wallet.sub4 + pending * 0.1,
-        sub5: state.wallet.sub5 + pending * 0.30,
-        sub6: state.wallet.sub6 + pending * 0.20
-      };
+      let calculatedSubs = {};
+
+      state.transactions.forEach((item, i) => {
+        switch (item.item.store) {
+          case 'Xiaomi': calculatedSubs = {
+            sub1: state.wallet.sub1 + pending * 0.4,
+            sub2: state.wallet.sub2 + pending * 0.25,
+            sub3: state.wallet.sub3 + pending * 0.15,
+            sub4: state.wallet.sub4 + pending * 0.15,
+          };
+                         break;
+          case 'Balmain': calculatedSubs = {
+            sub1: state.wallet.sub1 + pending * 0.4,
+            sub2: state.wallet.sub2 + pending * 0.25,
+            sub3: state.wallet.sub3 + pending * 0.15,
+            sub5: state.wallet.sub5 + pending * 0.15,
+          };
+                          break;
+          case 'Pierre Cardin': calculatedSubs = {
+            sub1: state.wallet.sub1 + pending * 0.4,
+            sub2: state.wallet.sub2 + pending * 0.25,
+            sub3: state.wallet.sub3 + pending * 0.15,
+            sub6: state.wallet.sub6 + pending * 0.15,
+          };
+                                break;
+        }
+      });
+
       return {
         ...state,
         wallet: {

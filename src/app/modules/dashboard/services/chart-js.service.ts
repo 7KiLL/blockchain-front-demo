@@ -20,7 +20,7 @@ export class ChartJsService implements OnDestroy {
     this.chartInstance = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Sub-wallet 1', 'Sub-wallet 2', 'Sub-wallet 3', 'Sub-wallet 4', 'Sub-wallet 5', 'Sub-wallet 6'],
+        labels: ['Personal wallet', 'Advertising', 'Development', 'Xiaomi', 'Balman', 'Pierre Cardin'],
         datasets: [{
           data: [0, 0, 0, 0, 0, 0],
           backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#D16BA5', '#86A8E7', '#5FFBF1'],
