@@ -7,6 +7,8 @@ export const selectMarketplaceState = createFeatureSelector<fromMarketplace.Mark
 
 export const selectMarketplaceLoadingState = createSelector(selectMarketplaceState, (state) => state.isLoading);
 
-export const selectMarketplaceTransactionsState = createSelector(selectMarketplaceState, (state) => state.transactions);
+export const selectCompletedTransactions = createSelector(selectMarketplaceState, (state) => state.wallet.completedTransactions);
 
 export const selectMarketplaceWalletState = createSelector(selectMarketplaceState, (state) => state.wallet);
+
+export const selectMarketplaceCartState = createSelector(selectMarketplaceState, (state) => state.cart);

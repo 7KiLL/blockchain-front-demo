@@ -95,25 +95,18 @@
       </div>
       <div class="card-body">
         <ng-container
-          *ngIf="(transactions$ | async).length; else emptyTransactions"
+          *ngIf="(completedTransactions$ | async).length; else emptyTransactions"
         >
           <div class="card shadow h-100 py-2 my-2"
-               [class.border-left-success]="transaction.status === 'success'"
-               [class.border-left-warning]="transaction.status === 'pending'"
-               *ngFor="let transaction of transactions$ | async"
+               *ngFor="let transaction of completedTransactions$ | async"
           >
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{transaction.item.title}}
-                    <span class="badge badge-warning align-middle" *ngIf="transaction.status === 'pending'">
-                      <span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true">
-                            </span>
-                      <span class="h6">Pending...</span>
-                    </span>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{transaction.title}}
                   </div>
-                  <div class="text-muted">{{transaction.item.description}}</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{transaction.item.price}}€</div>
+                  <div class="text-muted">{{transaction.description}}</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{transaction.price}}€</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-euro-sign fa-2x text-gray-300"></i>

@@ -9,6 +9,7 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { DashboardLayoutHeaderComponent } from './dashboard-layout/dashboard-layout-header/dashboard-layout-header.component';
 import { DashboardLayoutFooterComponent } from './dashboard-layout/dashboard-layout-footer/dashboard-layout-footer.component';
 import {SiteSettingsModule} from '../../core/modules/site-settings/site-settings.module';
+import {MarketplaceModule} from "../marketplace/marketplace.module";
 
 
 
@@ -24,7 +25,8 @@ import {SiteSettingsModule} from '../../core/modules/site-settings/site-settings
   imports: [
     CommonModule,
     RouterModule,
-    SiteSettingsModule
+    SiteSettingsModule,
+    MarketplaceModule,
   ],
   exports: [
     MainLayoutComponent,

@@ -1,0 +1,17 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Cart <span class="badge badge-pill badge-light">{{itemCount$ | async}}</span></button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <ng-container *ngIf="(items$ | async)?.length; else noItems">
+      <button ngbDropdownItem *ngFor="let item of items$ | async">
+        {{item.title}}
+      </button>
+      <div class="dropdown-divider"></div>
+      <button class="btn btn-primary" (click)="handleCheckout()">Checkout</button>
+    </ng-container>
+   <ng-template #noItems>
+    <div class="container">
+      <p>No products</p>
+    </div>
+   </ng-template>
+  </div>
+</div>

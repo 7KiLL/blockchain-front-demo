@@ -1,6 +1,9 @@
+import {CartModel} from './cart.model';
+
 export interface WalletModel {
   balance: number;
-  pendingForFill: number;
+  pendingTransactions: CartModel[];
+  completedTransactions: CartModel[];
   sub1: number;
   sub2: number;
   sub3: number;

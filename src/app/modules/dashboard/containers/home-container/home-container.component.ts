@@ -1,15 +1,15 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-
-import {Chart} from 'chart.js';
 import {Store} from '@ngrx/store';
 import {IAppState} from '../../../../core/store/app.state';
-import {selectMarketplaceTransactionsState, selectMarketplaceWalletState} from '../../../marketplace/store/marketplace.selectors';
-import {WalletModel} from '../../../marketplace/models/wallet.model';
-import {Subscription} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {ChartOptionsExtended} from '../../interfaces/chart-options-extended';
-import {ChartExtended} from '../../interfaces/chart-extended';
+import {
+  selectCompletedTransactions,
+  selectMarketplaceWalletState
+} from '../../../marketplace/store/marketplace.selectors';
+import {Observable, Subscription} from 'rxjs';
+import {buffer, bufferTime, filter, map, mergeAll, scan, tap} from 'rxjs/operators';
 import {ChartJsService} from '../../services/chart-js.service';
+import {ItemModel} from '../../../marketplace/models/item.model';
+import {flatten} from "@angular/compiler";
 
 @Component({
   selector: 'app-home-container',
@@ -20,8 +20,14 @@ export class HomeContainerComponent implements OnInit, AfterViewInit, OnDestroy 
 
   @ViewChild('canvasElement') pieChart: ElementRef;
 
+  public completedTransactions$: Observable<ItemModel[]> = this.store.select(selectCompletedTransactions).pipe(
+    map(carts => carts.map(cart => cart.items)),
+    // @ts-ignore IDE doesnt recognize new ES method
+    map(items => items.flat()),
+
+  );
   public walletBalance$ = this.store.select(selectMarketplaceWalletState).pipe(map(wallet => wallet.balance));
-  public transactions$ = this.store.select(selectMarketplaceTransactionsState);
+
 
   private subscription = new Subscription();
 
