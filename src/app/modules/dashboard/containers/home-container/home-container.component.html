@@ -116,7 +116,7 @@
           </div>
         </ng-container>
         <ng-template #emptyTransactions>
-          Empty transactions. Please, checkout something <a [routerLink]="['/']">Marketplace</a>
+          Empty transactions. Please, checkout something at <a [routerLink]="['/']">Marketplace</a>
         </ng-template>
       </div>
     </div>
@@ -126,7 +126,7 @@
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Wallet</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Distribution of Receivables</h6>
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
@@ -136,19 +136,35 @@
       </div>
       <!-- Card Body -->
       <div class="card-body">
-        <div class="py-2">
-          <p class="h3">Distribution of Funds: </p>
-        </div>
-        <div *ngIf="listingObjects?.length > 0" class="distribution-listing">
-          <p *ngFor="let item of listingObjects">
-              {{item.title}}: <strong>{{item.value}}€</strong>
-          </p>
-        </div>
+        <ng-container *ngIf="listingObjects?.length > 0">
+          <div class="py-2">
+            <p class="h3 text-center">Distribution of Funds:</p>
+          </div>
+          <div class="distribution-listing container">
+            <div class="row">
+              <div class="col-md">
+                <table class="table table-borderless">
+                  <tbody>
+                  <tr *ngFor="let item of listingObjects">
+                    <td>{{item.title}}:</td>
+                    <td><strong>{{item.value}}€</strong></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md align-self-center text-center">
+                <ng-container *ngIf="listingTotal">
+                  <p><strong>TOTAL</strong></p>
+                  <h4>{{listingTotal}}€</h4>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
         <div *ngIf="listingObjects?.length === 0" class="no-listing">
-          <p>
             No items to list.
-          </p>
         </div>
+
 <!--        <div class="chart-pie pt-4 pb-2">-->
 <!--          <canvas id="myPieChart" #canvasElement></canvas>-->
 <!--        </div>-->
