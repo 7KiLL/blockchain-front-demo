@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {IAppState} from '../../../../core/store/app.state';
 import {
@@ -16,7 +16,7 @@ import {flatten} from '@angular/compiler';
   templateUrl: './home-container.component.html',
   styleUrls: ['./home-container.component.scss']
 })
-export class HomeContainerComponent implements AfterViewInit, OnDestroy, OnInit {
+export class HomeContainerComponent implements OnDestroy, OnInit {
 
   @ViewChild('canvasElement') pieChart: ElementRef;
 
@@ -33,6 +33,8 @@ export class HomeContainerComponent implements AfterViewInit, OnDestroy, OnInit 
 
   public listingObjects: {title: string, value: number}[];
 
+  public listingTotal: number;
+
   constructor(
     private store: Store<IAppState>,
     private chartJsService: ChartJsService,
@@ -45,12 +47,12 @@ export class HomeContainerComponent implements AfterViewInit, OnDestroy, OnInit 
     });
     }
 
-  ngAfterViewInit() {
+  // ngAfterViewInit() {
     // this.chartSetup();
     // this.subscription = this.store.select(selectMarketplaceWalletState).subscribe(wallet => {
       // this.chartJsService.refillChart(wallet);
     // });
-  }
+  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -70,6 +72,7 @@ export class HomeContainerComponent implements AfterViewInit, OnDestroy, OnInit 
       };
     });
     this.listingObjects = mappedArray.filter(item => item.value > 0);
+    this.listingTotal = values.reduce((a, b) => a + b).toFixed(2);
   }
 
 }
