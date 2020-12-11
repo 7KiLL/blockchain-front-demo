@@ -1,3 +1,4 @@
+/* tslint:disable:max-line-length */
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {ItemModel} from '../models/item.model';
@@ -55,29 +56,29 @@ export class MockItemService {
     description: 'quis tortor id nulla ultrices aliquet maecenas leo odio condimentum',
     store: 'Balmain'
   }, {
-    src: 'https://images.unsplash.com/photo-1593424718424-cf4d83f3def1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    src: 'https://images.unsplash.com/photo-1578950114438-ad6ef117ab31?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fGNvYXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     title: 'sit amet consectetuer',
     price: 43,
     description: 'habitasse platea dictumst maecenas ut',
-    store: 'Starbucks'
+    store: 'Pierre Cardin'
   }, {
-    src: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=600',
+    src: 'https://images.unsplash.com/photo-1556786673-7d9434561ccc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fHNtYXJ0cGhvbmV8ZW58MHwxfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     title: 'in faucibus orci luctus et',
     price: 98,
     description: 'vel sem sed sagittis nam congue risus semper porta volutpat',
-    store: 'BMW'
+    store: 'Xiaomi'
   }, {
-    src: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y29mZmVlfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    src: 'https://images.unsplash.com/photo-1549577380-c76165562d10?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzZ8fHBhbnRzfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     title: 'eu magna vulputate',
     price: 81,
     description: 'ac leo pellentesque ultrices mattis odio donec vitae',
-    store: 'Lavazza'
+    store: 'Balmain'
   }, {
-    src: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    src: 'https://images.unsplash.com/photo-1600075114262-e16b04b2a5d3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nzd8fGRyZXNzfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     title: 'maecenas tristique',
     price: 49,
     description: 'consequat varius integer ac leo pellentesque ultrices mattis odio donec',
-    store: 'Apple'
+    store: 'Pierre Cardin'
   }];
 
   constructor() {
