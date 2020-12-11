@@ -137,11 +137,21 @@
       <!-- Card Body -->
       <div class="card-body">
         <div class="py-2">
-          <p class="h3 text-center">Distribution of Funds: </p>
+          <p class="h3">Distribution of Funds: </p>
         </div>
-        <div class="chart-pie pt-4 pb-2">
-          <canvas id="myPieChart" #canvasElement></canvas>
+        <div *ngIf="listingObjects?.length > 0" class="distribution-listing">
+          <p *ngFor="let item of listingObjects">
+              {{item.title}}: <strong>{{item.value}}€</strong>
+          </p>
         </div>
+        <div *ngIf="listingObjects?.length === 0" class="no-listing">
+          <p>
+            No items to list.
+          </p>
+        </div>
+<!--        <div class="chart-pie pt-4 pb-2">-->
+<!--          <canvas id="myPieChart" #canvasElement></canvas>-->
+<!--        </div>-->
         <!--        <div class="mt-4 text-center small">-->
         <!--                    <span class="mr-2">-->
         <!--                      <i class="fas fa-circle text-primary"></i> Direct-->
