@@ -1,20 +1,22 @@
 nav.bg-dark-transparent {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 header.masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url('../../../../../assets/img/header-background.jpg') no-repeat center center;
-  padding-top: 8rem;
+  background: #343a40 url('../../../../../assets/img/header-background.jpg') no-repeat center center;
   padding-bottom: 8rem;
+  padding-top: 8rem;
+  position: relative;
+
   .overlay {
-    position: absolute;
     background-color: #212529;
     height: 100%;
-    width: 100%;
-    top: 0;
     left: 0;
-    opacity: 0.3;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
     em {
       position: relative;
       top: 56px;
@@ -28,9 +30,10 @@ header.masthead {
   h1 {
     font-size: 2rem;
   }
+
   @media (min-width: 768px) {
-    padding-top: 12rem;
     padding-bottom: 12rem;
+    padding-top: 12rem;
     h1 {
       font-size: 3rem;
     }
